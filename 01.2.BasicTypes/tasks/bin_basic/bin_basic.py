@@ -1,7 +1,25 @@
 def find_value(nums: list[int] | range, value: int) -> bool:
     """
-    Find value in sorted sequence
-    :param nums: sequence of integers. Could be empty
-    :param value: integer to find
-    :return: True if value exists, False otherwise
+    hhihihi
     """
+    low = 0
+    high = len(nums) - 1
+    result = False
+    while low<=high:
+           mid = (low + high) // 2
+           guess = nums[mid]
+           
+           if guess == value:
+            result=True
+            return result
+           if guess > value:
+            high = mid - 1
+           else:
+            low = mid + 1
+
+    return result  
+
+
+
+     
+

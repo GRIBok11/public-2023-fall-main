@@ -1,4 +1,6 @@
 import pytest
+import sys
+sys.path.append('D:/fall_main/public-2023-fall-main/tools/testlib')
 import testlib
 
 from .testlib_test import sum_two_numbers
