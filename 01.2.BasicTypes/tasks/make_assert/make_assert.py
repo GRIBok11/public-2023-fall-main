@@ -5,6 +5,7 @@ import pytest
 ##############
 
 
+
 # Don't change this function!
 def ctr(clicks: int, shows: int) -> float:
     """
@@ -18,6 +19,9 @@ def ctr(clicks: int, shows: int) -> float:
     return clicks // shows if shows > 0 else 0
 
 
+
+
+
 def ctr_correct_implementation(clicks: int, shows: int) -> float:
     """
     Calculate ctr. Presumed that clicks always less or equals to shows
@@ -26,6 +30,14 @@ def ctr_correct_implementation(clicks: int, shows: int) -> float:
     :return: clicks-through rate.
              If there are no shows, return 0.0
     """
+   
+    if clicks == 0 and shows == 0:
+        return 0.0
+    assert clicks <= shows, "Clicks greater than shows"
+    return clicks / shows if shows > 0 else 0
+
+
+
 
 
 ##############
@@ -43,3 +55,12 @@ def test_check_ctr(clicks: int, shows: int, expected_result: float) -> None:
     :param expected_result: result to compare with
     :return: None
     """
+    result = ctr(clicks, shows)
+   
+    assert result == expected_result, "Wrong ctr calculation"
+    
+
+
+
+print(ctr(2,2))
+print(ctr_correct_implementation(1,2))

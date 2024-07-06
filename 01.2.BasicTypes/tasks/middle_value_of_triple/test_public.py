@@ -1,6 +1,8 @@
 import dataclasses
 
 import pytest
+import sys
+sys.path.append('D:/fall_main/public-2023-fall-main/tools/testlib')
 import testlib
 
 from .middle_value_of_triple import get_middle_value

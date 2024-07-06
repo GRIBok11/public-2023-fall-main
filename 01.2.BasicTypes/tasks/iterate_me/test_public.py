@@ -1,5 +1,6 @@
 import copy
-
+import sys
+sys.path.append('D:/fall_main/public-2023-fall-main/tools/testlib')
 import testlib
 
 from .iterate_me import get_squares, get_indices_from_one, get_max_element_index, \

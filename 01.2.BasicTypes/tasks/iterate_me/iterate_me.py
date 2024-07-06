@@ -3,6 +3,13 @@ def get_squares(elements: list[int]) -> list[int]:
     :param elements: list with integer values
     :return: list with squared values
     """
+    i=0
+    l=[]
+    for val in elements:
+        l.append(val**2)
+
+    return l
+
 
 
 # ====================================================================================================
@@ -13,6 +20,14 @@ def get_indices_from_one(elements: list[int]) -> list[int]:
     :param elements: list with integer values
     :return: list with indices started from 1
     """
+    i=1
+    l= elements.__len__()
+    index=[]
+    while i!=l+1:
+        index.append(i)
+        i+=1
+    return index
+
 
 
 # ====================================================================================================
@@ -23,6 +38,16 @@ def get_max_element_index(elements: list[int]) -> int | None:
     :param elements: list with integer values
     :return: index of maximum element if exists, None otherwise
     """
+    max_index=0
+    i=0
+    max=elements[0]
+    while i < elements.__len__():
+        if elements[i] > max:
+            max=elements[i]
+            max_index=i
+        i+=1
+    return max_index
+
 
 
 # ====================================================================================================
@@ -33,6 +58,16 @@ def get_every_second_element(elements: list[int]) -> list[int]:
     :param elements: list with integer values
     :return: list with each second element of list
     """
+    i=0
+    l=[]
+    while i<elements.__len__():
+        if i%2==1:
+            l.append(elements[i])
+        i+=1
+    return l
+
+
+
 
 
 # ====================================================================================================
@@ -43,6 +78,13 @@ def get_first_three_index(elements: list[int]) -> int | None:
     :param elements: list with integer values
     :return: index of first "3" in the list if exists, None otherwise
     """
+    i=0
+    while i<elements.__len__():
+        if elements[i]==3:
+           return i
+           break
+        i+=1
+    return None
 
 
 # ====================================================================================================
@@ -53,6 +95,14 @@ def get_last_three_index(elements: list[int]) -> int | None:
     :param elements: list with integer values
     :return: index of last "3" in the list if exists, None otherwise
     """
+    i=0
+    n=elements.__len__()-1
+    while n!=0:
+        if elements[n]==3:
+           return n
+           break
+        n-=1
+    return None
 
 
 # ====================================================================================================
@@ -63,6 +113,8 @@ def get_sum(elements: list[int]) -> int:
     :param elements: list with integer values
     :return: sum of elements
     """
+    s=sum(elements)
+    return s
 
 
 # ====================================================================================================
@@ -74,6 +126,18 @@ def get_min_max(elements: list[int], default: int | None) -> tuple[int | None, i
     :param default: default value to return if elements are empty
     :return: (min, max) of list elements or (default, default) if elements are empty
     """
+    min =default
+    max=default
+    tup=[]
+    for val in elements:
+        if val>max:
+            max=val
+        if val<min:
+            min=val
+
+    tup.append(min)
+    tup.append(max)
+    return tup
 
 
 # ====================================================================================================
@@ -86,3 +150,18 @@ def get_by_index(elements: list[int], i: int, boundary: int) -> int | None:
     :param boundary: boundary for check element value
     :return: element at index `i` from `elements` if element greater then boundary and None otherwise
     """
+    if elements[i]>boundary: return elements[i]
+
+
+val=[1,2,3,4,5,3]
+
+print(get_squares(val))
+
+print(get_indices_from_one(val))
+print(get_max_element_index(val))
+print(get_every_second_element(val))
+print(get_first_three_index(val))
+print(get_last_three_index(val))
+print(get_sum(val))
+print(get_min_max(val,0))
+print(get_by_index(val,3,2))
