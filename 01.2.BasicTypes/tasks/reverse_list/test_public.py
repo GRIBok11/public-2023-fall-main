@@ -2,6 +2,8 @@ import dataclasses
 import copy
 
 import pytest
+import sys
+sys.path.append('D:/fall_main/public-2023-fall-main/tools/testlib')
 import testlib
 
 from .reverse_list import reverse_iterative, reverse_inplace_iterative, reverse_inplace, reverse_reversed, reverse_slice
