@@ -3,6 +3,8 @@ import dataclasses
 import typing as tp
 
 import pytest
+import sys
+sys.path.append('D:/fall_main/public-2023-fall-main/tools/testlib')
 import testlib
 
 from .min_to_drop import get_min_to_drop

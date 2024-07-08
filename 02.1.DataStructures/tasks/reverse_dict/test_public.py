@@ -4,6 +4,8 @@ import typing as tp
 from collections import defaultdict
 
 import pytest
+import sys
+sys.path.append('D:/fall_main/public-2023-fall-main/tools/testlib')
 import testlib
 
 from .reverse_dict import revert
