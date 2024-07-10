@@ -5,6 +5,8 @@ import types
 import typing as tp
 
 import pytest
+import sys
+sys.path.append('D:/fall_main/public-2023-fall-main/tools/testlib')
 import testlib
 
 from .banner_search_system import build_index, get_banners, normalize, get_words, get_banner_indices_by_query

@@ -3,6 +3,8 @@ import dataclasses
 import typing as tp
 
 import pytest
+import sys
+sys.path.append('D:/fall_main/public-2023-fall-main/tools/testlib')
 import testlib
 
 from .traverse_dictionary import traverse_dictionary_immutable, traverse_dictionary_mutable, \

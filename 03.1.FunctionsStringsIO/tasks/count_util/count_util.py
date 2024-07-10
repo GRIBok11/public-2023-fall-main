@@ -19,3 +19,18 @@ def count_util(text: str, flags: str | None = None) -> dict[str, int]:
         * "longest_line" - the longest line length
         * "words" - amount of words
     """
+    if not flags:
+        flags = "-mlLw"
+
+    result = {}
+    if "m" in flags:
+        result["chars"] = len(text)
+    if "l" in flags:
+        result["lines"] = text.count('\n')  if text else 0
+    if "L"  in flags:
+        result["longest_line"] = max(len(line) for line in text.split('\n')) if text else 0
+    if "w" in flags:
+        result["words"] = len(text.split())
+
+    return result
+print(count_util('       \n            \n     \n','-L'))

@@ -3,6 +3,8 @@ import typing as tp
 from pathlib import Path
 
 import pytest
+import sys
+sys.path.append('D:/fall_main/public-2023-fall-main/tools/testlib')
 import testlib
 
 from .object_by_id import get_object_by_id
