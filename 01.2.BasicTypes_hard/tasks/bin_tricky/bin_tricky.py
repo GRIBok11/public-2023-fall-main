@@ -24,8 +24,7 @@ def find_median(nums1: Sequence[int], nums2: Sequence[int]) -> float:
         return float(b)
     else:
         n-=1
-        a= (listt[(n//2)]+ listt[(n//2)+1])/2
-        a:float
+        a: float= (listt[(n//2)]+ listt[(n//2)+1])/2
         return float(a)
         
 a=[]

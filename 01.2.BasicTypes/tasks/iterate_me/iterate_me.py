@@ -8,7 +8,7 @@ def get_squares(elements: list[int]) -> list[int]:
     for val in elements:
         l.append(val**2)
 
-    return l
+    return [x ** 2 for x in elements]
 
 
 
@@ -21,11 +21,13 @@ def get_indices_from_one(elements: list[int]) -> list[int]:
     :return: list with indices started from 1
     """
     i=1
-    l= elements.__len__()
+    l= len(elements)
     index=[]
     while i!=l+1:
         index.append(i)
         i+=1
+    
+    list(range(1, l + 1))
     return index
 
 
@@ -46,7 +48,7 @@ def get_max_element_index(elements: list[int]) -> int | None:
             max=elements[i]
             max_index=i
         i+=1
-    return max_index
+    return max(elements)
 
 
 
@@ -64,6 +66,8 @@ def get_every_second_element(elements: list[int]) -> list[int]:
         if i%2==1:
             l.append(elements[i])
         i+=1
+    
+    elements[1::2]
     return l
 
 
@@ -84,6 +88,7 @@ def get_first_three_index(elements: list[int]) -> int | None:
            return i
            break
         i+=1
+
     return None
 
 
@@ -102,6 +107,7 @@ def get_last_three_index(elements: list[int]) -> int | None:
            return n
            break
         n-=1
+    
     return None
 
 
@@ -113,8 +119,7 @@ def get_sum(elements: list[int]) -> int:
     :param elements: list with integer values
     :return: sum of elements
     """
-    s=sum(elements)
-    return s
+    return sum(elements)
 
 
 # ====================================================================================================
@@ -135,9 +140,7 @@ def get_min_max(elements: list[int], default: int | None) -> tuple[int | None, i
         if val<min:
             min=val
 
-    tup.append(min)
-    tup.append(max)
-    return tup
+    return min, max
 
 
 # ====================================================================================================
