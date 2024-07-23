@@ -1,27 +1,36 @@
 def normalize_path(path: str) -> str:
-    """
-    :param path: unix path to normalize
-    :return: normalized path
-    """
-    parts = path.split('/')
-    stack = []
 
+    stack: list[str] = []
+    absolute = path.startswith('/')
+    parts = path.split('/')
     for part in parts:
-        if part == '' or part == '.':
+        if not part:
+            continue
+        elif part == '.':
             continue
         elif part == '..':
-            if stack and stack[-1] != '..':
-                stack.pop()
-            elif not stack or stack[-1] == '..':
-                stack.append(part)
+            if stack:
+                if stack[-1] == '..':
+                    stack.append('..')
+                else:
+                    stack.pop()
+            else:
+                if absolute:
+                    continue
+                else:
+                    stack.append('..')
         else:
             stack.append(part)
+    
+    if absolute:
+        return '/' + '/'.join(stack)
+    else:
+        return '/'.join(stack) or '.'
 
-    normalized_path = '/' + '/'.join(stack)
-    return normalized_path if normalized_path != '' else '/'
 
 # Примеры использования
 print(normalize_path('/foo/bar//baz/asdf/quux/..'))  # Ожидаемый вывод: '/foo/bar/baz/asdf'
 print(normalize_path('./config/../etc'))  # Ожидаемый вывод: 'etc'
 print(normalize_path('/////documents/root/.././../etc'))  # Ожидаемый вывод: '/etc'
 print(normalize_path('a/../../b'))  # Ожидаемый вывод: '../b'
+print(normalize_path('../..'))  # Ожидаемый вывод: '../..'

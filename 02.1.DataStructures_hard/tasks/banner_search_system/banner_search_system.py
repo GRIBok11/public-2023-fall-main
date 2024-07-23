@@ -6,9 +6,7 @@ def normalize(text: str) -> str:
     :param text: text to normalize
     :return: normalized query
     """
-    text = re.sub(r'[^\w\s]', '', text)  # Удаляем знаки препинания
-    text = re.sub(r'\d', '', text)       # Удаляем цифры
-    return text.lower()                  # Переводим в нижний регистр
+
 
 
 
@@ -18,8 +16,7 @@ def get_words(query: str) -> list[str]:
     :param query: query to split
     :return: filtered and split query by words
     """
-    words = query.split()
-    return [word for word in words if len(word) > 3]
+
 
 def build_index(banners: list[str]) -> dict[str, list[int]]:
     """
@@ -27,16 +24,6 @@ def build_index(banners: list[str]) -> dict[str, list[int]]:
     :param banners: list of banners for indexation
     :return: mapping from word to banners ids
     """
-    index = {}
-    for banner_id, banner in enumerate(banners):
-        words = get_words(normalize(banner))
-        for word in words:
-            if word not in index:
-                index[word] = []
-            if banner_id not in index[word]:
-                index[word].append(banner_id)
-    return index
-
 
 
 def get_banner_indices_by_query(query: str, index: dict[str, list[int]]) -> list[int]:
@@ -46,16 +33,6 @@ def get_banner_indices_by_query(query: str, index: dict[str, list[int]]) -> list
     :param index: index to search banners
     :return: list of indices of suitable banners
     """
-    words = get_words(normalize(query))
-    if not words:
-        return []
-    
-    banner_sets = [set(index.get(word, [])) for word in words]
-    if not banner_sets:
-        return []
-    
-    common_banners = set.intersection(*banner_sets)
-    return sorted(common_banners)
 
 
 
@@ -75,7 +52,5 @@ def get_banners(
     :param banners: list of banners
     :return: list of matched banners
     """
-    indices = get_banner_indices_by_query(query, index)
-    return [banners[i] for i in indices]
 
 #########################

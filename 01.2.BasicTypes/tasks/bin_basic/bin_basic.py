@@ -5,19 +5,20 @@ def find_value(nums: list[int] | range, value: int) -> bool:
     low = 0
     high = len(nums) - 1
     result = False
-    while low<=high:
-           mid = (low + high) // 2
-           guess = nums[mid]
+    while low <= high:
            
-           if guess == value:
-            result=True
+        mid = (low + high) // 2
+        guess = nums[mid]
+
+        if guess == value:
+            result = True
             return result
-           if guess > value:
+        if guess > value:
             high = mid - 1
-           else:
+        else:
             low = mid + 1
 
-    return result  
+    return result   
 
 
 

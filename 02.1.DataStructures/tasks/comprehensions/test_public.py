@@ -6,7 +6,7 @@ import sys
 sys.path.append('D:/fall_main/public-2023-fall-main/tools/testlib')
 import testlib
 
-from . import comprehensions as comp
+from.import comprehensions as comp
 from collections.abc import Callable
 
 

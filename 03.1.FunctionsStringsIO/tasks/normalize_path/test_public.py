@@ -10,7 +10,6 @@ import testlib
 
 from .normalize_path import normalize_path
 
-
 @dataclasses.dataclass
 class Case:
     path: str

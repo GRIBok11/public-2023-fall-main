@@ -10,21 +10,21 @@ def find_median(nums1: Sequence[int], nums2: Sequence[int]) -> float:
              average of two middle values if sum of sequences' lengths is even
     """
 
-    listt=[]
+    listt = []
     listt = nums1 + nums2
     listt.sort()
- 
-    n=listt.__len__()
+  
+    n = listt.__len__()
    
-    if n==1:
+    if n == 1:
         return float(listt[0])
-    elif n % 2==1:
-        b=listt[(n//2)]
+    elif n % 2 == 1:
+        b = listt[(n//2)]
     
         return float(b)
     else:
-        n-=1
-        a: float= (listt[(n//2)]+ listt[(n//2)+1])/2
+        n -= 1 
+        a: float= (listt[(n//2)] + listt[(n//2)+1])/2
         return float(a)
         
 a=[]

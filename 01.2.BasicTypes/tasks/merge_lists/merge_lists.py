@@ -5,9 +5,23 @@ def merge_iterative(lst_a: list[int], lst_b: list[int]) -> list[int]:
     :param lst_b: second sorted list
     :return: merged sorted list
     """
-    lst = lst_a+lst_b
-    lst.sort()
-    return lst
+    merged = []
+    i, j = 0, 0
+
+    while i < len(lst_a) and j < len(lst_b):
+        if lst_a[i] <= lst_b[j]:
+            merged.append(lst_a[i])
+            i += 1
+        elif (lst_a[i] > lst_b[j]):
+            merged.append(lst_b[j])
+            j += 1
+    
+    merged.extend(lst_a[i:])
+    merged.extend(lst_b[j:])
+    return merged
+
+
+
 
 
 def merge_sorted(lst_a: list[int], lst_b: list[int]) -> list[int]:
@@ -17,9 +31,9 @@ def merge_sorted(lst_a: list[int], lst_b: list[int]) -> list[int]:
     :param lst_b: second sorted list
     :return: merged sorted list
     """
-    lst = lst_a+lst_b
-    lst=sorted(lst)
-    return lst
+    return sorted(lst_b+lst_a)
+
+
 
 
 ls1=[1,2,4]

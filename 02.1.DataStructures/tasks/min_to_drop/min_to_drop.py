@@ -6,7 +6,7 @@ def get_min_to_drop(seq: tp.Sequence[tp.Any]) -> int:
     :param seq: sequence of elements
     :return: number of elements need to drop to leave equal elements
     """
-    a=0
+    a = 0
     count = Counter(seq)
    
     max_count = max(count.values(),default=0)
